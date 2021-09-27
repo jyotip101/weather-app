@@ -1,5 +1,5 @@
 import Home from './homepage'
-import './css/app.css'
+// import './css/app.css'
 import Example from './example'
 function App() {
   return (
