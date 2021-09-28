@@ -26,7 +26,7 @@ const HomePage = () =>{
                 setLon(pos.coords.longitude)
             })
 
-        fetch(`${API_URL}weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`)
+       await fetch(`${API_URL}weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`)
             .then(res => res.json())
             .then(result => {
                 setData(result)
@@ -56,14 +56,14 @@ const HomePage = () =>{
                 </Card>  
                 <Card>
                     <Card.Content textAlign='center'>
-                        <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} />
+                        {/* <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} />
                         <h5>{data.weather[0].main}       {data.sys.temp_max}</h5>
-                        <p>{data.weather[0].description}</p>
+                        <p>{data.weather[0].description}</p> */}
                     </Card.Content>
                 </Card>
                 <Card>
                     <Card.Content>
-                        <p>
+                        {/* <p>
                         <i class="fas fa-temperature-low"></i>
                         {data.main.temp_min}
                         </p>
@@ -78,7 +78,7 @@ const HomePage = () =>{
                         <p>
                         <i class="fas fa-moon"></i>
                         {data.sys.sunset}
-                        </p>
+                        </p> */}
                     </Card.Content>
                 </Card>
         </div>
