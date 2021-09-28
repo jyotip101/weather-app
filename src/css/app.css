@@ -25,4 +25,18 @@ body {
 
 .fas {
   text-align: center;
+  margin: auto 0.3rem auto 2rem;
+}
+
+.card {
+  width: 50%;
+}
+
+.sourceCode a {
+  text-decoration: none;
+  color: black;
+}
+
+.sourceCode a i {
+  margin: auto 0.1rem;
 }

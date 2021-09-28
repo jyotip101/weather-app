@@ -42,38 +42,40 @@ const HomePage = () =>{
             <Card>
                 <Card.Content>
                     <Card.Header textAlign='center'>
-                        <p className="day"> {moment().format("LT")}</p>
-                    </Card.Header>
-                    <Card.Header className="Header" textAlign="center">
-                         {data.sys.country}, {data.name}
-                    </Card.Header>
-                    <Card.Header textAlign='center'>
-                        <p className="day"> {moment().format("Do MMMM YYYY")}</p>
-                    </Card.Header>
-                     
-                    {/* <Button>Referes</Button> */}
-                </Card.Content>
-                </Card>  
-                <Card>
-                    <Card.Content textAlign='center'>
-                        <img width="50%" src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} />
-                        <h3>{data.weather[0].main}   </h3>
-                        <p>{data.weather[0].description}</p>
-                    </Card.Content>
-                </Card>
-                <Card>
-                    <Card.Content textAlign='center'>
-                        <p>
-                            <i width='25px' class="fas fa-temperature-low"></i>
-                            {data.main.temp_min}
+                        <p> 
+                           <span>  {moment().format("LT")},   </span> 
+                           <span>  {moment().format("Do MMMM YYYY")}</span> 
+                    </p><p>
+                            {data.sys.country}, {data.name} 
+                            
                         </p>
-                        <p>
-                            <i class="fas fa-temperature-high"></i>
-                            {data.main.temp_max}
-                        </p> 
-                    </Card.Content>
-                </Card> 
-    </>
+                    </Card.Header>
+                </Card.Content>
+            </Card>  
+            <Card>
+                <Card.Content textAlign='center'>
+                    <img width="50%" src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} />
+                    <h3>{data.weather[0].main}   </h3>
+                    <p>{data.weather[0].description}</p>
+                </Card.Content>
+            </Card>
+            <Card>
+                <Card.Content textAlign='center'>
+                    <p>
+                        <i width='25px' class="fas fa-temperature-low"></i>
+                        { ((data.main.temp_min ) - 273.15) + "C" } 
+                        <i class="fas fa-temperature-high"></i>
+                        {((data.main.temp_max  ) - 273.15) + "C" }
+                    </p> 
+                </Card.Content>
+            </Card> 
+
+            <Button className="sourceCode" >  
+                    <a   href= "https://github.com/jyotip101/Weather-app-in-js/blob/main/src/script.js">
+                        <i className='fab fa-github' /> source code
+                    </a> 
+            </Button>
+</>
     )
 }
 
