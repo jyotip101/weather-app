@@ -45,7 +45,7 @@ const HomePage = () =>{
                         <p className="day">Time: {moment().format("LT")}</p>
                     </Card.Header>
                     <Card.Header className="Header" textAlign="center">
-                        City Name: {data.sys.country}, {data.name}
+                        {/* City Name: {data.sys.country}, {data.name} */}
                     </Card.Header>
                     <Card.Header>
                         <p className="day">Day: {moment().format("Do MMMM YYYY")}</p>
