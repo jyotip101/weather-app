@@ -6,6 +6,7 @@ import {
 import 'semantic-ui-css/semantic.min.css'
 import moment from 'moment'
 
+import './css/app.css'
 const HomePage = () =>{
 
     const API_URL = `https://api.openweathermap.org/data/2.5/`
@@ -37,18 +38,17 @@ const HomePage = () =>{
     }, [lat, lon])
 
     return(
-    <>
-        <div className="homePage" textAlign='center'> 
+    <> 
             <Card>
                 <Card.Content>
                     <Card.Header textAlign='center'>
-                        <p className="day">Time: {moment().format("LT")}</p>
+                        <p className="day"> {moment().format("LT")}</p>
                     </Card.Header>
                     <Card.Header className="Header" textAlign="center">
-                        {/* City Name: {data.sys.country}, {data.name} */}
+                         {data.sys.country}, {data.name}
                     </Card.Header>
-                    <Card.Header>
-                        <p className="day">Day: {moment().format("Do MMMM YYYY")}</p>
+                    <Card.Header textAlign='center'>
+                        <p className="day"> {moment().format("Do MMMM YYYY")}</p>
                     </Card.Header>
                      
                     {/* <Button>Referes</Button> */}
@@ -56,32 +56,23 @@ const HomePage = () =>{
                 </Card>  
                 <Card>
                     <Card.Content textAlign='center'>
-                        {/* <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} />
-                        <h5>{data.weather[0].main}       {data.sys.temp_max}</h5>
-                        <p>{data.weather[0].description}</p> */}
+                        <img width="50%" src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} />
+                        <h3>{data.weather[0].main}   </h3>
+                        <p>{data.weather[0].description}</p>
                     </Card.Content>
                 </Card>
                 <Card>
-                    <Card.Content>
-                        {/* <p>
-                        <i class="fas fa-temperature-low"></i>
-                        {data.main.temp_min}
+                    <Card.Content textAlign='center'>
+                        <p>
+                            <i width='25px' class="fas fa-temperature-low"></i>
+                            {data.main.temp_min}
                         </p>
                         <p>
-                        <i class="fas fa-temperature-high"></i>
-                        {data.main.temp_max}
-                        </p>
-                        <p>
-                        <i class="fas fa-sun"></i>
-                        {data.sys.sunrise}
-                        </p>
-                        <p>
-                        <i class="fas fa-moon"></i>
-                        {data.sys.sunset}
-                        </p> */}
+                            <i class="fas fa-temperature-high"></i>
+                            {data.main.temp_max}
+                        </p> 
                     </Card.Content>
-                </Card>
-        </div>
+                </Card> 
     </>
     )
 }

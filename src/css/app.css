@@ -1,16 +1,28 @@
 body {
-  background-color: #0c3b2e;
-  color: #f0f0f0;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#760933), to(#ebc37f));
+  background-image: linear-gradient(#760933, #ebc37f);
 }
 
 .App {
   min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fas {
+  text-align: center;
 }
