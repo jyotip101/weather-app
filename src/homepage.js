@@ -41,31 +41,44 @@ const HomePage = () =>{
         <div className="homePage" textAlign='center'> 
             <Card>
                 <Card.Content>
+                    <Card.Header textAlign='center'>
+                        <p className="day">Time: {moment().format("LT")}</p>
+                    </Card.Header>
                     <Card.Header className="Header" textAlign="center">
-                        City Name: {data.name}
+                        City Name: {data.sys.country}, {data.name}
                     </Card.Header>
                     <Card.Header>
-                    <p className="day">Day: {moment().format("Do MMMM YYYY")}</p>
+                        <p className="day">Day: {moment().format("Do MMMM YYYY")}</p>
                     </Card.Header>
-                    <Card.Header>
-                    <p className="day">Time: {moment().format("LT")}</p>
-                    </Card.Header>
-                    {/* <Button>Clivk</Button> */}
+                     
+                    {/* <Button>Referes</Button> */}
                 </Card.Content>
                 </Card>  
                 <Card>
+                    <Card.Content textAlign='center'>
+                        <img src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} />
+                        <h5>{data.weather[0].main}       {data.sys.temp_max}</h5>
+                        <p>{data.weather[0].description}</p>
+                    </Card.Content>
+                </Card>
+                <Card>
                     <Card.Content>
-                        <Label image>
-                             
-                            <i>{data.name}</i>
-                             hello
-                        </Label>
-                        <Label image>
-                             {/* <i>{`${ICON_URL + data.weather[0].icon}@2x.png`}</i> */}
-                             {/* <img src={`http://openweathermap.org/img/wn/${data.weather[0].main}@2x`} /> */}
-                            <i>{data.weather[0].main}</i>
-                             hello
-                        </Label>
+                        <p>
+                        <i class="fas fa-temperature-low"></i>
+                        {data.main.temp_min}
+                        </p>
+                        <p>
+                        <i class="fas fa-temperature-high"></i>
+                        {data.main.temp_max}
+                        </p>
+                        <p>
+                        <i class="fas fa-sun"></i>
+                        {data.sys.sunrise}
+                        </p>
+                        <p>
+                        <i class="fas fa-moon"></i>
+                        {data.sys.sunset}
+                        </p>
                     </Card.Content>
                 </Card>
         </div>
