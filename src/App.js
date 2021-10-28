@@ -1,47 +1,70 @@
-import React, { useEffect, useState} from 'react'
-import Home from './homepage'
-// import './css/app.css'
-import Example from './example'
-function App() {
-
+import React, { useState } from 'react';
   
-  const API_URL = `https://api.openweathermap.org/data/2.5/`
-  const API_KEY = '7c707d67bfaea395afd4f3cf375077ca' 
+import './css/app.min.css';
 
-  const ICON_URL = `http://openweathermap.org/img/wn/`
-  //  ${data.weather[0].icon}@2x.pn
+const api = {
+  key: "7c707d67bfaea395afd4f3cf375077ca",
+  base: "https://api.openweathermap.org/data/2.5/"
+} 
 
-  const [lat, setLat] = useState([])
-  const [lon, setLon] = useState([])
-  const [data, setData] = useState([])
+const App = () => {
 
-  useEffect(() =>{
-      const fetchData = async() => {
-          navigator.geolocation.getCurrentPosition( pos =>{
-              setLat(pos.coords.latitude)
-              setLon(pos.coords.longitude)
-          })
+  const [query, setQuery] = useState('');
+  const [data, setData] = useState({});
 
-     await fetch(`${API_URL}weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`)
-          .then(res => res.json())
-          .then(result => {
-              setData(result)
-              console.log(result)
-          })
-      }
-      fetchData()
-  }, [lat, lon])
+  const search = e =>{
+    if(e.key === 'Enter'){
+      
+      fetch(`${api.base}weather?q=${query}&unit=metric&APPID=${api.key}`)
+        .then(res => res.json())
+        .then(result => {
+          setData(result);
+          setQuery("");
+          console.log(result);
+        });
+    }
+  }
 
+  const dateBulder = (d) => {
+  
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let months = ["Jan", "Feb", "Mar", "Ape", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nav", "Dec"];
+
+    let day = days[d.getDay()];
+    let date = d.getDate();
+    let month = months[d.getMonth()];
+    let year = d.getFullYear();
+
+    return `${day} ${date} ${month} ${year}`;
+  }
 
   return (
-    <div className="App"> 
-    { (typeof data.main != 'undefined') ? (
-          
-      <Home datas={data}/>  
-
-      ) : (
-            <div> </div>
-        ) } 
+    <div className="App">
+        <main>
+          <div className="search-bar">
+            <input 
+              type="text" 
+              className="search"
+              placeholder="Enter city name"
+              onChange={e => setQuery(e.target.value)}
+              value={query}
+              onKeyPress={search}
+            />
+          </div>
+          {(typeof data.main != "undefined") ? ( 
+          <div>
+            <div className="location-bar">
+              <div className="location">{data.name}, {data.sys.country}</div>
+              <div className="date">{dateBulder(new Date())}</div>
+            </div>
+            
+            <div className="weather-bar">
+              <div className="temp">{Math.round(data.main.temp)}&deg;C </div>
+              <div className="weather">{data.weather[0].main}</div>
+            </div>
+          </div>
+            ): ('')}
+        </main>
     </div>
   )
 }

@@ -1,32 +1,105 @@
- body{
-    background-image: linear-gradient(#760933, #ebc37f);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.App{ 
-    min-height: 100vh; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-    height: 100vh;  
-    margin: 0 auto; 
-    display: flex;  
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; 
-}
+body{
 
-.fas{ 
-    text-align: center; 
-    margin: auto 0.3rem auto 2rem; 
-}
-.card{
-    width: 50%;
-}
-.sourceCode{ 
-    & a{
-        text-decoration: none;
-        color: black;
-        
-        & i{
-            margin: auto 0.1rem;
+    font-family: monospace;
+
+    & .App{
+        background-image: linear-gradient(#760933, #ebc37f);
+        background-size: cover;
+        background-position: bottom;
+        transition: 0.4 ease-out;
+ 
+
+        & main{
+            min-height: 100vh;
+            padding: 25px;
+            background-image: linear-gradient(#760933, #ebc37f);
+
+            & .search-bar {
+                width: 100%;
+                margin: 0 0 75px;
+
+                & .search{
+                    display: block;
+                    width: 100%;
+                    padding: 15px;
+
+                    appearance: none;
+                    background: none;
+                    border: none;
+                    outline: none;
+                    background-color: rgba(255, 255, 255, 0.5);
+                    border-radius: 16px;
+                    margin-top:  25px;
+
+                    box-shadow:  0 5px rgba(0, 0, 0, 0.2);
+
+                    color: #313131;
+                    font-size: 20px;
+
+                    transition: 0.4s ease;
+
+                    &:focus{
+                        background-color: rgba(255, 255, 255, 0.75);
+                    }
+
+                }
+            }
+
+            & .location-bar {
+                & .location{
+                    color: #fff;
+                    font-size: 32px;
+                    font-weight: 500;
+                    text-align: center;
+                    text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+                }
+                & .date{
+                    color: #fff;
+                    font-size: 20px;
+                    font-weight: 300;
+                    font-style: italic;
+                    text-align: center;
+                    text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+                }
+            }
+            
+            & .weather-bar{
+                text-align: center;
+                & .temp{
+                    position: relative;
+                    display: inline-block;
+                    margin: 30px auto;
+                    background-color: rgba(255, 255, 255, 0.52);
+                    border-radius: 16px;
+
+                    padding: 15px  25px;
+                    color: #fff;
+                    font-size: 102px;
+                    font-weight: 900;
+
+                    text-align: center;
+                    text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
+                    box-shadow: 3px 6px rgba(0, 0, 70, 0.2);
+                }
+
+                & .weather{
+                    color: #fff;
+                    font-size: 48px;
+                    font-weight: 700;
+ 
+                    text-shadow: 3px px rgba(50, 50, 70, 0.5);
+                    
+                }
+            }
         }
+
     }
-} 
+
+}
+ 
