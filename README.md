@@ -4,10 +4,10 @@ an Weather app that allows users to search weather by city name.
  
 <!-- TABLE OF CONTENTS -->
 
-## Table of Contents
+<!-- ## Table of Contents -->
 
-- [Demo](#demo)
-- [Overview](#overview)  
+<!-- - [Demo](#demo) -->
+<!-- - [Overview](#overview)   -->
 
 <!-- DEMO -->
 
@@ -17,7 +17,7 @@ an Weather app that allows users to search weather by city name.
 
 <!-- OVERVIEW -->
 
-## Overview 
+<!-- ## Overview  -->
  
 ## How to clone this repository
 
